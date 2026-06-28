@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkinAI</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    <h1 class="text-center text-primary">
+        SkinAI
+    </h1>
+
+    <h5 class="text-center mb-5">
+        AI Powered Skin Analysis
+    </h5>
+
+    <div class="row">
+
+        <!-- Camera -->
+        <div class="col-md-6">
+
+            <h3>Open Camera</h3>
+
+            <video
+                id="video"
+                width="100%"
+                autoplay
+                class="border rounded">
+            </video>
+
+            <canvas
+                id="canvas"
+                style="display:none;">
+            </canvas>
+
+            <button
+                id="capture"
+                class="btn btn-primary mt-3 w-100">
+
+                Capture Photo
+
+            </button>
+
+        </div>
+
+        <!-- Upload -->
+        <div class="col-md-6">
+
+            <h3>Upload Image</h3>
+
+            <form
+                action="/predict"
+                method="POST"
+                enctype="multipart/form-data">
+
+                <input
+                    class="form-control mb-3"
+                    type="file"
+                    name="image"
+                    accept="image/*"
+                    required>
+
+                <button
+                    type="submit"
+                    class="btn btn-success w-100">
+
+                    Analyze Skin
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- JavaScript -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

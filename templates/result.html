@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>SkinAI Result</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    <h1 class="text-center text-success">
+
+        Skin Analysis Report
+
+    </h1>
+
+    <div class="card shadow p-4 mt-4">
+
+        <h3>Acne Analysis</h3>
+
+        <p>
+
+            <b>Acne Type :</b>
+
+            {{ report.acne_type }}
+
+        </p>
+
+        <p>
+
+            <b>Acne Probability :</b>
+
+            {{ report.acne_probability }} %
+
+        </p>
+
+        <p>
+
+            <b>Severity :</b>
+
+            {{ report.severity }}
+
+        </p>
+
+        <hr>
+
+        <h3>Skin Type</h3>
+
+        <p>
+
+            <b>Skin Type :</b>
+
+            {{ report.skin_type }}
+
+        </p>
+
+        <p>
+
+            Dry : {{ report.dry }}
+
+        </p>
+
+        <p>
+
+            Oily : {{ report.oily }}
+
+        </p>
+
+        <p>
+
+            Normal : {{ report.normal }}
+
+        </p>
+
+        <hr>
+
+        <h3>Skin Score</h3>
+
+        <h2 class="text-primary">
+
+            {{ report.skin_score }}/100
+
+        </h2>
+
+        <hr>
+
+        <h3>Recommendations</h3>
+
+        <ul>
+
+        {% for item in report.recommendations %}
+
+            <li>{{ item }}</li>
+
+        {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <div class="text-center mt-4">
+
+        <a
+        href="/"
+        class="btn btn-primary">
+
+        Analyze Another Image
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

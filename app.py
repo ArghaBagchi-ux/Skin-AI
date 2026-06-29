@@ -4,6 +4,7 @@ import os
 import json
 
 from acne_predictor import predict_image
+#from skin_type_predictior import predict_skin_type
 from skin_type_predictior import predict_skin_type
 from skin_segmentation import segment_skin
 from score_engine import calculate_skin_score
@@ -70,5 +71,8 @@ def predict():
     })
 
     
-if __name__=="__main__":
-    app.run(debug=True)
+import os
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)

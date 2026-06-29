@@ -3,9 +3,19 @@ import numpy as np
 import cv2
 from PIL import Image
 
-# Load model
+import os
+import tensorflow as tf
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+MODEL_PATH = os.path.join(
+    BASE_DIR,
+    "model",
+    "slin_type_model.keras"
+)
+
 model = tf.keras.models.load_model(
-    r"D:\SkinAI\model\slin_type_model.keras",
+    MODEL_PATH,
     compile=False
 )
 
